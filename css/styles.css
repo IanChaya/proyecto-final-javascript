@@ -1,47 +1,142 @@
 @import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 body {
     overflow-x: hidden;
     max-width: 100%;
-}
-
-.titulos{
-    font-family: 'Qwitcher Grypen', cursive;
-    font-size: 4rem;
 }
 
 .bg {
     background: linear-gradient(180deg, #000000 0%, #540202 100%);
 }
 
-.navbar{
+.navbar {
     background-color: #000000;
 }
 
-.navbar a{
+.navbar a {
     color: white !important;
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
 }
 
-.navbar .logo{
+.navbar .logo {
     font-family: 'Qwitcher Grypen', cursive;
     font-style: italic;
     font-size: 2.5rem;
 }
 
-.titulos{
+.titulos {
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 4rem;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.primerTitulo{
-    margin-top: 4.5rem;
+.card {
+    border: solid 0.1rem white;
 }
 
-.card{
-    border: solid 0.1rem white;
+.nombres {
+    color: white;
+}
+
+.precios {
+    color: white;
+}
+
+#comidas-contenedor {
+    display: flex;
+    justify-content: space-between;
+}
+
+#bebidas-contenedor {
+    display: flex;
+    justify-content: space-between;
+}
+
+#postres-contenedor {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card .card-image .card-title {}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 25px 0px;
+}
+
+.main {
+    margin-top: 4.5rem;
+    display: block;
+}
+
+/* Modal */
+.modal-container {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: transparent;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+}
+
+.modal-carrito {
+    width: 20rem;
+    height: auto;
+    border-radius: 0.25rem;
+    border: solid black 0.25rem;
+    color: black;
+    background: white;
+    font-family: Verdana;
+    font-size: 1rem;
+    box-shadow: -2px -2px 54px 37px rgba(0, 0, 0, 0.59);
+    -webkit-box-shadow: -2px -2px 54px 37px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: -2px -2px 54px 37px rgba(0, 0, 0, 0.59);
+}
+
+.boton-cerrar {
+    border-radius: 0.5rem;
+    border-color: black;
+    width: 4rem;
+    height: 2rem;
+}
+
+.laCuenta {
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 2.5rem;
+    font-style: italic;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 1px black;
+}
+
+.precio {
+    color: black;
+    border-top: solid 1px black;
+    margin-bottom: 1rem;
+
 }
