@@ -83,3 +83,64 @@ const mostrarMenu = (comidas, bebidas, postres) => {
 };
 
 mostrarMenu(comidas, bebidas, postres);
+
+// Actualizacion carrito en Storage
+let compraEnCurso = [];
+let carritoStorage = localStorage.getItem("pedidoEnCurso");
+compraEnCurso = JSON.parse(carritoStorage);
+
+if (compraEnCurso?.length > 0) {
+	compraEnCurso.forEach((item) => {
+		carritoIndex(item.id);
+	});
+} else {
+	const contenedorFrase = document.getElementById("contenedor-frase");
+	let div = document.createElement("div");
+	div.innerHTML = "No hay productos";
+	contenedorFrase.appendChild(div);
+}
+
+let vaciarCarrito = document.getElementById("vaciar-carrito");
+vaciarCarrito.addEventListener("click", () => {
+	let divi = document.getElementById("carrito-contenedor");
+	if (divi !== null) {
+		while (divi.hasChildNodes()) {
+			divi.removeChild(divi.lastChild);
+		}
+	}
+	divi = document.getElementById("contenedor-precio-total");
+	if (divi !== null) {
+		while (divi.hasChildNodes()) {
+			divi.removeChild(divi.lastChild);
+		}
+	}
+
+	divi = document.getElementById("contenedor-frase");
+	if (divi !== null) {
+		while (divi.hasChildNodes()) {
+			divi.removeChild(divi.lastChild);
+		}
+	}
+	precioTotal = 0;
+	carritoDeCompras = [];
+	actualizarContadorCarrito(0);
+	localStorage.clear();
+	const contenedorFrase = document.getElementById("contenedor-frase");
+	let div = document.createElement("div");
+	div.innerHTML = "No hay productos";
+	contenedorFrase.appendChild(div);
+});
+
+///////////////////////////////////////////////////////////////////////////////////77
+//Implementacion de una busqueda
+let hacerBusqueda = document.getElementById("buscar");
+hacerBusqueda.addEventListener("click", () => {
+	palabra = document.getElementById("buscador");
+	palabra.addEventListener("submit", (e) => {
+		e.preventDefault();
+		let inputs = e.target.children;
+		itemBusqueda = inputs[0].value;
+		itemBusqueda = itemBusqueda.toLowerCase();
+		buscar(itemBusqueda);
+	});
+});

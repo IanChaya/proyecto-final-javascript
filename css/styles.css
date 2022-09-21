@@ -69,8 +69,6 @@ body {
     justify-content: space-between;
 }
 
-.card .card-image .card-title {}
-
 .card {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 25px 0px;
 }
@@ -123,6 +121,13 @@ body {
     height: 2rem;
 }
 
+.boton-vaciar-carrito{
+    border-radius: 0.5rem;
+    border-color: black;
+    width: 10rem;
+    height: 2rem; 
+}
+
 .laCuenta {
     font-family: 'Qwitcher Grypen', cursive;
     font-size: 2.5rem;
@@ -138,5 +143,4 @@ body {
     color: black;
     border-top: solid 1px black;
     margin-bottom: 1rem;
-
 }

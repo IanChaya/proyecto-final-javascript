@@ -2,9 +2,17 @@
 
 let precioTotal = 0;
 let cantidadItems = 0;
-const carritoDeCompras = [];
+let carritoDeCompras = [];
 
 const carritoIndex = (itemId) => {
+
+	let divi = document.getElementById('contenedor-frase')
+    if(divi !== null){
+        while (divi.hasChildNodes()){
+            divi.removeChild(divi.lastChild);
+        }
+	}
+
 	const contenedorCarrito = document.getElementById("carrito-contenedor");
 
 	const renderProductosCarrito = () => {
@@ -33,4 +41,5 @@ const carritoIndex = (itemId) => {
 	renderProductosCarrito();
 	actualizarPrecio(precioTotal);
 	actualizarContadorCarrito(cantidadItems);
+	localStorage.setItem("pedidoEnCurso", JSON.stringify(carritoDeCompras));
 };
