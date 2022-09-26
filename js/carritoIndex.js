@@ -32,7 +32,7 @@ const carritoIndex = (itemId) => {
 		contenedorCarrito.appendChild(div);
 
 		for (let i = 0; i < carritoDeCompras.length; i++) {
-			precioTotal = precioTotal + carritoDeCompras[i].precio;
+			precioTotal += carritoDeCompras[i].precio; // Optimizacion de codigo
 		}
 
 		cantidadItems = carritoDeCompras.length;

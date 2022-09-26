@@ -25,15 +25,15 @@ function buscar(itemBusqueda) {
 		console.log(itemEncontrado);
 		const contenedorBusqueda = document.getElementById("contenedor-busqueda");
 		const div = document.createElement("div");
-
+        const {id,nombre,precio,img}=itemEncontrado; // Desestructuracion
 		div.innerHTML += `<div class="row row-cols-1 d-flex g-3 p-3 h-50 w-50 mx-auto">
         					<div class="col">
             					<div class="card">
-			    					<img src="${itemEncontrado.img}" class="card-img-top" alt="...">
+			    					<img src="${img}" class="card-img-top" alt="...">
 			    					<div class="card-body">
-			    						<h5 class="card-title">${itemEncontrado.nombre}</h5>
-			    						<p class="card-text">Precio :$${itemEncontrado.precio}</p>
-			    						<button class="btn btn-dark mx-auto" id=boton${itemEncontrado.id}>Añadir</button>
+			    						<h5 class="card-title">${nombre}</h5>
+			    						<p class="card-text">Precio :$${precio}</p>
+			    						<button class="btn btn-dark mx-auto" id=boton${id}>Añadir</button>
                                         <button class="btn btn-dark mx-auto" id=reiniciarMenu>Menu Completo</button>
 			    					</div>               
             					</div>
@@ -42,10 +42,10 @@ function buscar(itemBusqueda) {
 
 		contenedorBusqueda.appendChild(div);
 
-		const botonAñadir = document.getElementById(`boton${itemEncontrado.id}`);
+		const botonAñadir = document.getElementById(`boton${id}`);
 		botonAñadir.addEventListener("click", () => {
-			carritoIndex(itemEncontrado.id);
-			alert(`Se agrego el producto ${itemEncontrado.nombre}`);
+			carritoIndex(id);
+			alert(`Se agrego el producto ${nombre}`);
 		});
 
 		const botonReiniciar = document.getElementById(`reiniciarMenu`);

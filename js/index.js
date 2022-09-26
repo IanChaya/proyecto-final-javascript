@@ -82,14 +82,18 @@ const mostrarMenu = (comidas, bebidas, postres) => {
 	});
 };
 
-mostrarMenu(comidas, bebidas, postres);
+const productos = [comidas, bebidas, postres];
+
+mostrarMenu(...productos); // Operador Spread
 
 // Actualizacion carrito en Storage
-let compraEnCurso = [];
-let carritoStorage = localStorage.getItem("pedidoEnCurso");
-compraEnCurso = JSON.parse(carritoStorage);
+// let compraEnCurso = [];
+// let carritoStorage = localStorage.getItem("pedidoEnCurso");
+// compraEnCurso = JSON.parse(carritoStorage);
 
-if (compraEnCurso?.length > 0) {
+let compraEnCurso = JSON.parse(localStorage.getItem("pedidoEnCurso")) || []; // Operador OR
+
+if (compraEnCurso?.length > 0) { //Acceso condicional
 	compraEnCurso.forEach((item) => {
 		carritoIndex(item.id);
 	});
