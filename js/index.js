@@ -24,7 +24,11 @@ const mostrarMenu = (comidas, bebidas, postres) => {
 		const boton = document.getElementById(`boton${comida.id}`);
 		boton.addEventListener("click", () => {
 			carritoIndex(comida.id);
-			alert(`Se agrego el producto ${comida.nombre}`);
+			Toast.fire({
+				icon: "success",
+				title: `Se agrego el producto ${comida.nombre}`,
+			});
+			//alert(`Se agrego el producto ${comida.nombre}`);
 		});
 	});
 
@@ -50,7 +54,11 @@ const mostrarMenu = (comidas, bebidas, postres) => {
 		const boton = document.getElementById(`boton${bebida.id}`);
 		boton.addEventListener("click", () => {
 			carritoIndex(bebida.id);
-			alert(`Se agrego el producto ${bebida.nombre}`);
+			Toast.fire({
+				icon: "success",
+				title: `Se agrego el producto ${bebida.nombre}`,
+			});
+			//alert(`Se agrego el producto ${bebida.nombre}`);
 		});
 	});
 
@@ -77,7 +85,11 @@ const mostrarMenu = (comidas, bebidas, postres) => {
 		const boton = document.getElementById(`boton${postre.id}`);
 		boton.addEventListener("click", () => {
 			carritoIndex(postre.id);
-			alert(`Se agrego el producto ${postre.nombre}`);
+			Toast.fire({
+				icon: "success",
+				title: `Se agrego el producto ${postre.nombre}`,
+			});
+			//alert(`Se agrego el producto ${postre.nombre}`);
 		});
 	});
 };
@@ -93,7 +105,8 @@ mostrarMenu(...productos); // Operador Spread
 
 let compraEnCurso = JSON.parse(localStorage.getItem("pedidoEnCurso")) || []; // Operador OR
 
-if (compraEnCurso?.length > 0) { //Acceso condicional
+if (compraEnCurso?.length > 0) {
+	//Acceso condicional
 	compraEnCurso.forEach((item) => {
 		carritoIndex(item.id);
 	});
@@ -106,33 +119,46 @@ if (compraEnCurso?.length > 0) { //Acceso condicional
 
 let vaciarCarrito = document.getElementById("vaciar-carrito");
 vaciarCarrito.addEventListener("click", () => {
-	let divi = document.getElementById("carrito-contenedor");
-	if (divi !== null) {
-		while (divi.hasChildNodes()) {
-			divi.removeChild(divi.lastChild);
-		}
-	}
-	divi = document.getElementById("contenedor-precio-total");
-	if (divi !== null) {
-		while (divi.hasChildNodes()) {
-			divi.removeChild(divi.lastChild);
-		}
-	}
+	Swal.fire({
+		title: "Está seguro que desea eliminar su pedido?",
+		icon: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#3085d6",
+		cancelButtonColor: "#d33",
+		confirmButtonText: "Sí, Eliminar",
+		cancelButtonText: "Cancelar",
+	}).then((result) => {
+		if (result.isConfirmed) {
+			Swal.fire("", "Su pedido ha sido eliminado", "success");
+			let divi = document.getElementById("carrito-contenedor");
+			if (divi !== null) {
+				while (divi.hasChildNodes()) {
+					divi.removeChild(divi.lastChild);
+				}
+			}
+			divi = document.getElementById("contenedor-precio-total");
+			if (divi !== null) {
+				while (divi.hasChildNodes()) {
+					divi.removeChild(divi.lastChild);
+				}
+			}
 
-	divi = document.getElementById("contenedor-frase");
-	if (divi !== null) {
-		while (divi.hasChildNodes()) {
-			divi.removeChild(divi.lastChild);
+			divi = document.getElementById("contenedor-frase");
+			if (divi !== null) {
+				while (divi.hasChildNodes()) {
+					divi.removeChild(divi.lastChild);
+				}
+			}
+			precioTotal = 0;
+			carritoDeCompras = [];
+			actualizarContadorCarrito(0);
+			localStorage.clear();
+			const contenedorFrase = document.getElementById("contenedor-frase");
+			let div = document.createElement("div");
+			div.innerHTML = "No hay productos";
+			contenedorFrase.appendChild(div);
 		}
-	}
-	precioTotal = 0;
-	carritoDeCompras = [];
-	actualizarContadorCarrito(0);
-	localStorage.clear();
-	const contenedorFrase = document.getElementById("contenedor-frase");
-	let div = document.createElement("div");
-	div.innerHTML = "No hay productos";
-	contenedorFrase.appendChild(div);
+	});
 });
 
 ///////////////////////////////////////////////////////////////////////////////////77
@@ -147,4 +173,16 @@ hacerBusqueda.addEventListener("click", () => {
 		itemBusqueda = itemBusqueda.toLowerCase();
 		buscar(itemBusqueda);
 	});
+});
+
+const Toast = Swal.mixin({
+	toast: true,
+	position: "top-end",
+	showConfirmButton: false,
+	timer: 2000,
+	timerProgressBar: true,
+	didOpen: (toast) => {
+		toast.addEventListener("mouseenter", Swal.stopTimer);
+		toast.addEventListener("mouseleave", Swal.resumeTimer);
+	},
 });

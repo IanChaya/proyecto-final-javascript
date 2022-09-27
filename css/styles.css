@@ -121,11 +121,11 @@ body {
     height: 2rem;
 }
 
-.boton-vaciar-carrito{
+.boton-vaciar-carrito {
     border-radius: 0.5rem;
     border-color: black;
     width: 10rem;
-    height: 2rem; 
+    height: 2rem;
 }
 
 .laCuenta {
@@ -143,4 +143,15 @@ body {
     color: black;
     border-top: solid 1px black;
     margin-bottom: 1rem;
+}
+
+.alertProductoAgregado {
+    background-color: black;
+    border: 1px solid black;
+}
+
+.swal2-popup {
+    /* font-size: 1.6rem !important; */
+    font-family: 'Lato', sans-serif;
+    /* background-color: #FCF3CF !important; */
 }

@@ -5,12 +5,11 @@ let cantidadItems = 0;
 let carritoDeCompras = [];
 
 const carritoIndex = (itemId) => {
-
-	let divi = document.getElementById('contenedor-frase')
-    if(divi !== null){
-        while (divi.hasChildNodes()){
-            divi.removeChild(divi.lastChild);
-        }
+	let divi = document.getElementById("contenedor-frase");
+	if (divi !== null) {
+		while (divi.hasChildNodes()) {
+			divi.removeChild(divi.lastChild);
+		}
 	}
 
 	const contenedorCarrito = document.getElementById("carrito-contenedor");

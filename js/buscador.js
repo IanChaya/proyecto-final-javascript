@@ -25,7 +25,7 @@ function buscar(itemBusqueda) {
 		console.log(itemEncontrado);
 		const contenedorBusqueda = document.getElementById("contenedor-busqueda");
 		const div = document.createElement("div");
-        const {id,nombre,precio,img}=itemEncontrado; // Desestructuracion
+		const { id, nombre, precio, img } = itemEncontrado; // Desestructuracion
 		div.innerHTML += `<div class="row row-cols-1 d-flex g-3 p-3 h-50 w-50 mx-auto">
         					<div class="col">
             					<div class="card">
@@ -53,8 +53,16 @@ function buscar(itemBusqueda) {
 			location.reload();
 		});
 	} else {
-		alert(
-			`No tenemos ${itemBusqueda} en nuestro menu :(. Lo tendremos en cuenta para la proxima!`
-		);
+		Swal.fire({
+			title: `No tenemos ${itemBusqueda} en nuestro menu :(`,
+			text: "Lo tendremos en cuenta para la proxima!",
+			icon: "error",
+			confirmButtonColor: "#3085d6",
+			confirmButtonText: "Okey",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				location.reload();
+			}
+		});
 	}
 }
