@@ -1,0 +1,30 @@
+    [
+        {
+            "id":1, "categoria":"Comida", "nombre":"Hamburguesa con Papas Fritas", "precio":1500,"img":"assets/hamburguesa-con-papas-fritas.jpg","cantidad":1
+        },
+        {
+            "id":2, "categoria":"Comida", "nombre":"Pizza napolitana", "precio":1850,"img":"assets/pizza-napolitana.jpg","cantidad":1
+        },
+        {
+            "id":3, "categoria":"Comida", "nombre":"Lasagna", "precio":1250,"img":"assets/lasagna.jpg","cantidad":1
+        },
+        {
+            "id":4, "categoria":"Bebida", "nombre":"Agua", "precio":250,"img":"assets/agua.jpg","cantidad":1
+        },
+        {
+            "id":5, "categoria":"Bebida", "nombre":"Coca Cola", "precio":350,"img":"assets/coca-cola.jpg","cantidad":1
+        },
+        {
+            "id":6, "categoria":"Bebida", "nombre":"Cerveza Artesanal", "precio":500,"img":"assets/cerveza-artesanal.jpg","cantidad":1
+        },
+        {
+            "id":7, "categoria":"Postre", "nombre":"Brownie", "precio":650,"img":"assets/brownie.jpg","cantidad":1
+        },
+        {
+            "id":8, "categoria":"Postre", "nombre":"Cheesecake", "precio":750,"img":"assets/cheesecake.jpg","cantidad":1
+        },
+        {
+            "id":9, "categoria":"Postre", "nombre":"Tiramisu", "precio":700,"img":"assets/tiramisu.jpg","cantidad":1
+        }
+    
+    ]

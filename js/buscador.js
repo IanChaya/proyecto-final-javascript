@@ -1,6 +1,5 @@
 function buscar(itemBusqueda) {
-	console.log(itemBusqueda);
-
+    
 	let divi = document.getElementById("main");
 	if (divi !== null) {
 		while (divi.hasChildNodes()) {
@@ -45,7 +44,11 @@ function buscar(itemBusqueda) {
 		const botonAñadir = document.getElementById(`boton${id}`);
 		botonAñadir.addEventListener("click", () => {
 			carritoIndex(id);
-			alert(`Se agrego el producto ${nombre}`);
+            Toast.fire({
+				icon: "success",
+				title: `Se agrego el producto ${nombre}`,
+			});
+			//alert(`Se agrego el producto ${nombre}`);
 		});
 
 		const botonReiniciar = document.getElementById(`reiniciarMenu`);

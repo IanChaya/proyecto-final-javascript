@@ -4,7 +4,12 @@ let precioTotal = 0;
 let cantidadItems = 0;
 let carritoDeCompras = [];
 
-const carritoIndex = (itemId) => {
+const carritoIndex = async (itemId) => {
+	try {
+		items = await getStock();
+	} catch (error) {
+		console.log(error);
+	}
 	let divi = document.getElementById("contenedor-frase");
 	if (divi !== null) {
 		while (divi.hasChildNodes()) {
