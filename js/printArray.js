@@ -6,7 +6,7 @@ const printArray = (prods, contenedor) => {
 		div.innerHTML += `<div class="row row-cols-1 d-flex g-3 p-3">
                             <div class="col">
                                 <div class="card">
-                                    <img src="${prod.img}" class="card-img-top" alt="...">
+                                    <img src="${prod.img}" class="card-img-top precarga" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">${prod.nombre}</h5>
                                         <p class="card-text">Precio: $${prod.precio}</p>

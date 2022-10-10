@@ -36,21 +36,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#platos">Platos</a>
+                        <a class="nav-link active categorias" aria-current="page" href="#platos">Platos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#bebidas">Bebidas</a>
+                        <a class="nav-link active categorias" aria-current="page" href="#bebidas">Bebidas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#postres">Postres</a>
+                        <a class="nav-link active categorias" aria-current="page" href="#postres">Postres</a>
                     </li>
                     <li class="nav-item d-flex justify-content-end">
-                        <button class="nav-link text-body " id="open" href="#">Pedido<i
-                                class="fa-solid fa-cart-shopping"></i> <span id="contador-carrito">0</span> </a>
+                        <button class="nav-link text-body icono-carrito" id="open" href="#">Pedido<i
+                                class="fa-solid fa-cart-shopping "></i> <span id="contador-carrito">0</span> </a>
                     </li>
                 </ul>
                 <form id="buscador" class="d-flex" role="search">
-                    <input id="palabra-busqueda" class="form-control me-2" type="search"
+                    <input id="palabra-busqueda" class="form-control text-area me-2" type="search"
                         placeholder="Ingrese un producto" aria-label="Search">
                     <button id="buscar" class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
@@ -70,18 +70,18 @@
     </div>
     <!-- Contenedores platos, bebidas y postres -->
     <div id="main" class="main">
-        <h1 id=platos class="titulos">
+        <h1 id=platos class="titulos blur-in">
             Nuestros Platos:
         </h1>
         <div id="comidas-contenedor">
         </div>
-        <h1 id=bebidas class="titulos">
+        <h1 id=bebidas class="titulos blur-in">
             Nuestras Bebidas:
         </h1>
         <div id="bebidas-contenedor">
 
         </div>
-        <h1 id=postres class="titulos">
+        <h1 id=postres class="titulos blur-in">
             Nuestros Postres:
         </h1>
         <div id="postres-contenedor">
@@ -90,16 +90,22 @@
 
     </div>
 
+    <!-- Contenedor Busqueda -->
+
     <div id="contenedor-busqueda"></div>
+
+    <!-- Scripts utilizados -->
 
     <!-- <script src="./js/stock.js"></script> -->
     <script src="./js/getStock.js"></script>
+    <script src="./js/eliminarItem.js"></script>
     <script src="./js/printArray.js"></script>
     <script src="./js/modal.js"></script>
     <script src="./js/actualizarPrecio.js"></script>
     <script src="./js/actualizarContadorCarrito.js"></script>
+    <script src="./js/vaciarCarrito.js"></script>
     <script src="./js/carritoIndex.js"></script>
-    <script src="./js/buscador.js"></script>
+    <script src="./js/buscar.js"></script>
     <script src="./js/index.js"></script>
 </body>
 

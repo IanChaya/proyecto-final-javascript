@@ -1,3 +1,5 @@
+// Este Script queda sin uso al utilizarse el JSON para almacenar el Stock.
+
 // // Declaro las clases a utilizar
 // class item {
 // 	constructor(id, categoria, nombre, precio, img, cantidad) {

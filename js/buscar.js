@@ -1,4 +1,6 @@
-function buscar(itemBusqueda) {
+//En este Script se maneja la Implementacion de una busqueda
+
+const buscar = (itemBusqueda) => {
     
 	let divi = document.getElementById("main");
 	if (divi !== null) {
@@ -28,7 +30,7 @@ function buscar(itemBusqueda) {
 		div.innerHTML += `<div class="row row-cols-1 d-flex g-3 p-3 h-50 w-50 mx-auto">
         					<div class="col">
             					<div class="card">
-			    					<img src="${img}" class="card-img-top" alt="...">
+			    					<img src="${img}" class="card-img-top precarga" alt="...">
 			    					<div class="card-body">
 			    						<h5 class="card-title">${nombre}</h5>
 			    						<p class="card-text">Precio :$${precio}</p>
@@ -69,3 +71,29 @@ function buscar(itemBusqueda) {
 		});
 	}
 }
+
+
+let hacerBusqueda = document.getElementById("buscar");
+hacerBusqueda.addEventListener("click", () => {
+	palabra = document.getElementById("buscador");
+	palabra.addEventListener("submit", (e) => {
+		e.preventDefault();
+		let inputs = e.target.children;
+		itemBusqueda = inputs[0].value;
+		itemBusqueda = itemBusqueda.toLowerCase();
+		buscar(itemBusqueda);
+	});
+});
+
+const Toast = Swal.mixin({
+	toast: true,
+	position: "top-end",
+	showConfirmButton: false,
+	timer: 2000,
+	timerProgressBar: true,
+	didOpen: (toast) => {
+		toast.addEventListener("mouseenter", Swal.stopTimer);
+		toast.addEventListener("mouseleave", Swal.resumeTimer);
+	},
+});
+

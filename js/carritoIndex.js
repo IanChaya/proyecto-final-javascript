@@ -23,16 +23,20 @@ const carritoIndex = async (itemId) => {
 		precioTotal = 0;
 		let item = items.find((item) => item.id == itemId);
 		carritoDeCompras.push(item);
+		let cantidadTotal = carritoDeCompras.length;
+		console.log("Cantidad",cantidadTotal)
 		console.log(carritoDeCompras);
-
+		let idItem = `${item.id}${cantidadTotal}`;
+		console.log("ID Item:",idItem);
 		item.cantidad = 1;
 
 		let div = document.createElement("div");
 		div.classList.add("productoEnCarrito");
 
-		div.innerHTML = `<p>${item.nombre}:  $${item.precio}</p>`;
-		// <p id="cantidad${item.id}">Cantidad: ${item.cantidad}</p>
-		// <button id="eliminar${item.id}" class="boton-eliminar" ><i class="fa-solid fa-trash-can"></i></button>`;
+		div.innerHTML = `<button id="eliminarItem${idItem}" class="boton-eliminar">
+		<i class="fa-solid fa-trash-can"></i>
+		</button> <span>${item.nombre}:  $${item.precio}</span><p></p>`;
+
 		contenedorCarrito.appendChild(div);
 
 		for (let i = 0; i < carritoDeCompras.length; i++) {
@@ -40,6 +44,15 @@ const carritoIndex = async (itemId) => {
 		}
 
 		cantidadItems = carritoDeCompras.length;
+
+		const botonEliminar = document.getElementById(`eliminarItem${idItem}`);
+		botonEliminar.addEventListener("click", () => {
+			eliminarItem(item.id);
+			Toast.fire({
+				icon: "error",
+				title: `Se eliminó el producto ${item.nombre}`,
+			});
+		});
 	};
 
 	renderProductosCarrito();
@@ -47,3 +60,18 @@ const carritoIndex = async (itemId) => {
 	actualizarContadorCarrito(cantidadItems);
 	localStorage.setItem("pedidoEnCurso", JSON.stringify(carritoDeCompras));
 };
+
+// Actualizacion carrito en Storage
+
+let compraEnCurso = JSON.parse(localStorage.getItem("pedidoEnCurso")) || []; // Operador OR
+
+if (compraEnCurso?.length > 0) {
+	compraEnCurso.forEach((item) => {
+		carritoIndex(item.id);
+	});
+} else {
+	const contenedorFrase = document.getElementById("contenedor-frase");
+	let div = document.createElement("div");
+	div.innerHTML = "No hay productos";
+	contenedorFrase.appendChild(div);
+}
